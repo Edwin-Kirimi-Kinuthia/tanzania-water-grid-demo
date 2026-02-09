@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tanzania Water Grid - 3D Mini Demo</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <!-- ── 3D Canvas Container ── -->
+  <div id="canvas-container"></div>
+
+  <!-- ── Top Bar ── -->
+  <header id="topbar">
+    <div class="topbar-left">
+      <div class="logo-icon">&#x1F30A;</div>
+      <div>
+        <h1>Tanzania Water Grid</h1>
+        <span class="subtitle">Interactive 3D Mini Demo</span>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <button id="btn-toggle-flow" class="topbar-btn active" title="Toggle Water Flow">
+        <span>&#x1F4A7;</span> Flow
+      </button>
+      <button id="btn-toggle-labels" class="topbar-btn active" title="Toggle Labels">
+        <span>&#x1F3F7;</span> Labels
+      </button>
+      <button id="btn-day-night" class="topbar-btn" title="Toggle Day/Night">
+        <span>&#x2600;</span> Light
+      </button>
+      <button id="btn-reset-cam" class="topbar-btn" title="Reset Camera">
+        <span>&#x1F3AC;</span> Reset
+      </button>
+    </div>
+  </header>
+
+  <!-- ── Sidebar ── -->
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <h2>Infrastructure</h2>
+      <p>Click to fly to component</p>
+    </div>
+
+    <div class="component-list">
+      <button class="component-btn" data-target="lake">
+        <div class="comp-icon" style="--c:#00B4D8;">&#x1F30A;</div>
+        <div class="comp-info">
+          <div class="comp-name">Water Source (Lake)</div>
+          <div class="comp-desc">Natural freshwater reservoir</div>
+        </div>
+        <div class="comp-arrow">&#8250;</div>
+      </button>
+
+      <button class="component-btn" data-target="dam">
+        <div class="comp-icon" style="--c:#FF6D00;">&#x1F3D7;</div>
+        <div class="comp-info">
+          <div class="comp-name">Dam</div>
+          <div class="comp-desc">Water retention & flow control</div>
+        </div>
+        <div class="comp-arrow">&#8250;</div>
+      </button>
+
+      <button class="component-btn" data-target="canal">
+        <div class="comp-icon" style="--c:#00E676;">&#x1F6A4;</div>
+        <div class="comp-info">
+          <div class="comp-name">Open Canal</div>
+          <div class="comp-desc">Gravity-fed water channel</div>
+        </div>
+        <div class="comp-arrow">&#8250;</div>
+      </button>
+
+      <button class="component-btn" data-target="treatment">
+        <div class="comp-icon" style="--c:#7B2FF7;">&#x1F3ED;</div>
+        <div class="comp-info">
+          <div class="comp-name">Treatment Plant</div>
+          <div class="comp-desc">Purification & quality control</div>
+        </div>
+        <div class="comp-arrow">&#8250;</div>
+      </button>
+
+      <button class="component-btn" data-target="pump">
+        <div class="comp-icon" style="--c:#F9A825;">&#x26A1;</div>
+        <div class="comp-info">
+          <div class="comp-name">Pumping Station</div>
+          <div class="comp-desc">Uphill water transfer</div>
+        </div>
+        <div class="comp-arrow">&#8250;</div>
+      </button>
+
+      <button class="component-btn" data-target="pipes">
+        <div class="comp-icon" style="--c:#E040FB;">&#x1F6A7;</div>
+        <div class="comp-info">
+          <div class="comp-name">Pipeline</div>
+          <div class="comp-desc">Pressurized pipe system</div>
+        </div>
+        <div class="comp-arrow">&#8250;</div>
+      </button>
+
+      <button class="component-btn" data-target="homes">
+        <div class="comp-icon" style="--c:#FF6B6B;">&#x1F3E0;</div>
+        <div class="comp-info">
+          <div class="comp-name">Destination (Homes)</div>
+          <div class="comp-desc">Residential water supply</div>
+        </div>
+        <div class="comp-arrow">&#8250;</div>
+      </button>
+    </div>
+
+    <div class="sidebar-footer">
+      <button id="btn-tour" class="tour-btn">
+        <span>&#x1F3AC;</span> Start Guided Tour
+      </button>
+      <div class="elevation-label">Elevation Profile</div>
+      <canvas id="elevationChart" width="240" height="80"></canvas>
+    </div>
+  </aside>
+
+  <!-- ── Info Card (popup on click) ── -->
+  <div id="info-card" class="info-card hidden">
+    <button id="info-close" class="info-close">&times;</button>
+    <div id="info-icon" class="info-icon"></div>
+    <h3 id="info-title"></h3>
+    <p id="info-desc"></p>
+    <div id="info-stats" class="info-stats"></div>
+  </div>
+
+  <!-- ── Loading Screen ── -->
+  <div id="loading-screen">
+    <div class="loader">
+      <div class="loader-ring"></div>
+      <div class="loader-text">Initializing 3D Scene...</div>
+      <div class="loader-sub" id="load-status">Setting up terrain</div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

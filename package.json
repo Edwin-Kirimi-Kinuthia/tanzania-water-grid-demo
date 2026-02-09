@@ -1,0 +1,17 @@
+{
+  "name": "tz-water-grid-mini-demo",
+  "version": "1.0.0",
+  "description": "Tanzania Water Grid System - Interactive 3D Mini Demo",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0"
+  }
+}
